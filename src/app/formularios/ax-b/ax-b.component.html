@@ -1,0 +1,20 @@
+<h1>Multiplicar A por B</h1>
+
+<form [formGroup]="formulario" class="p-3">
+  <div>
+    <label for="num1">Número 1</label>
+    <input id="num1" type="number" formControlName="num1">
+  </div>
+
+  <div>
+    <label for="num2">Número 2</label>
+    <input id="num2" type="number" formControlName="num2">
+  </div>
+
+  <button type="button" (click)="calcular()">CALCULAR</button>
+  <button type="button" (click)="limpiar()">BORRAR</button>
+
+  <p ngIf="detalle">{{ detalle }}</p>
+  <p ngIf="resultado !== null">Resultado: <strong>{{ resultado }}</strong></p>
+</form>
+

@@ -1,0 +1,28 @@
+<h1>Calculo de distancia</h1>
+
+<form [formGroup]="formulario" class="p-3">
+  <div>
+    <label for="x1">x1</label>
+    <input id="x1" type="number" formControlName="x1" />
+  </div>
+
+  <div>
+    <label for="y1">y1</label>
+    <input id="y1" type="number" formControlName="y1" />
+  </div>
+
+  <div>
+    <label for="x2">x2</label>
+    <input id="x2" type="number" formControlName="x2" />
+  </div>
+
+  <div>
+    <label for="y2">y2</label>
+    <input id="y2" type="number" formControlName="y2" />
+  </div>
+
+  <button type="button" (click)="calcular()">CALCULAR</button>
+  <button type="button" (click)="limpiar()">BORRAR</button>
+
+  <p>{{ resultadoTexto }}</p>
+</form>
