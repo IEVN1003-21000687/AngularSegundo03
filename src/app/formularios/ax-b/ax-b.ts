@@ -16,7 +16,9 @@ export class Mult {
       partes.push(String(this.num1));
     }
 
-    const detalle = `La suma resultante es ${partes.length ? partes.join('+') : '0'}=${total}`;
+    const detalle = `La suma es de ${
+      partes.length ? partes.join('+') : '0'
+    }=${total}`;
     return { valor: total, detalle };
   }
 }
