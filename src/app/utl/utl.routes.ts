@@ -13,11 +13,13 @@ export default [
 
   {
     path: 'editar/:matricula',
-    loadComponent: () => import('./editar/editar.component'),
+    loadComponent: () =>
+      import('./editar/editar.component').then((m) => m.EditarComponent),
   },
 
   {
     path: 'eliminar/:matricula',
-    loadComponent: () => import('./eliminar/eliminar.component'),
+    loadComponent: () =>
+      import('./eliminar/eliminar.component').then((m) => m.EliminarComponent),
   },
 ] as Routes;

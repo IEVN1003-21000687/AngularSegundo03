@@ -11,9 +11,6 @@ import { CommonModule, Location } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { ProyectoapiService } from '../proyectoapi.service';
 
-
-
-
 @Component({
   selector: 'app-eliminar',
   standalone: true,
@@ -21,7 +18,7 @@ import { ProyectoapiService } from '../proyectoapi.service';
   templateUrl: './eliminar.component.html',
   styles: ``,
 })
-export default class EliminarComponent {
+export class EliminarComponent {
   dataSource: any = [];
   tem: any;
   regAlumno: AlumnosUtl = {
@@ -51,12 +48,15 @@ export default class EliminarComponent {
   }
 
   asignaCampos(dataSource: any) {
-    this.regAlumno.matricula = dataSource.alumno.matricula;
-    this.regAlumno.nombre = dataSource.alumno.nombre;
-    this.regAlumno.apaterno = dataSource.alumno.apaterno;
-    this.regAlumno.amaterno = dataSource.alumno.amaterno;
-    this.regAlumno.correo = dataSource.alumno.correo;
-    console.log(dataSource.alumno.matricula);
+    const alumno = dataSource.alumnos; // ← aquí viene el alumno REAL
+
+    this.regAlumno.matricula = this.tem[3]; // la matrícula viene desde la URL
+    this.regAlumno.nombre = alumno.nombre;
+    this.regAlumno.apaterno = alumno.apaterno;
+    this.regAlumno.amaterno = alumno.amaterno;
+    this.regAlumno.correo = alumno.correo;
+
+    console.log('Asignado:', this.regAlumno);
   }
 
   eliminar() {

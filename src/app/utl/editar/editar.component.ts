@@ -5,15 +5,10 @@ import {
   ReactiveFormsModule,
   FormsModule,
 } from '@angular/forms';
-
 import { AlumnosUtl } from '../alumnos';
 import { CommonModule, Location } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { ProyectoapiService } from '../proyectoapi.service';
-
-
-
-
 
 @Component({
   selector: 'app-editar',
@@ -22,7 +17,7 @@ import { ProyectoapiService } from '../proyectoapi.service';
   templateUrl: './editar.component.html',
   styles: ``,
 })
-export default class EditarComponent {
+export class EditarComponent implements OnInit {
   dataSource: any = [];
   formGroup!: FormGroup;
   tem: any;
@@ -64,12 +59,13 @@ export default class EditarComponent {
   }
 
   asignaCampos(dataSource: any) {
-    this.regAlumno.matricula = dataSource.alumno.matricula;
-    this.regAlumno.nombre = dataSource.alumno.nombre;
-    this.regAlumno.apaterno = dataSource.alumno.apaterno;
-    this.regAlumno.amaterno = dataSource.alumno.amaterno;
-    this.regAlumno.correo = dataSource.alumno.correo;
-    console.log(dataSource.alumno.matricula);
+    const alumno = dataSource.alumnos;
+
+    this.regAlumno.matricula = this.tem[3];
+    this.regAlumno.nombre = alumno.nombre;
+    this.regAlumno.apaterno = alumno.apaterno;
+    this.regAlumno.amaterno = alumno.amaterno;
+    this.regAlumno.correo = alumno.correo;
   }
 
   modificar() {
